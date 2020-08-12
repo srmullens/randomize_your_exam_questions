@@ -137,21 +137,16 @@ def output_quiz(true_false_questions_answers,multiple_choice_questions_answers):
     # Multiple Choice Questions
     multiple_choice_questions_answers = random_sequence(multiple_choice_questions_answers)
 
-    A_count = 0; B_count = 0; C_count = 0; D_count = 0
+    #A_count = 0; B_count = 0; C_count = 0; D_count = 0
+    letters_count = [0] * 26
     for question in multiple_choice_questions_answers:   # [question,options,answer]
         print(f'{question_number}\t{question[0]}\n')
 
         # Count letter answers and replace correct answer with *
-        letters = ['A','B','C','D']
+        letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
         letters = ['*' if question[2]==x else x for x in letters]
-        if question[2]=='A':
-            A_count+=1
-        elif question[2]=='B':
-            B_count+=1
-        elif question[2]=='C':
-            C_count+=1
-        elif question[2]=='D':
-            D_count+=1
+        letters_count = [x+1 if letters[i]=='*' else x for i,x in enumerate(letters_count)]
 
         # Print answers.
         for i,option in enumerate(question[1]):
@@ -160,8 +155,11 @@ def output_quiz(true_false_questions_answers,multiple_choice_questions_answers):
         print('\n')
         question_number += 1
 
+    letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    end_i = [i for i, e in enumerate(letters_count) if e != 0][-1]+1
+
     print("\nTrue/False: "+str(true_count),str(false_count))
-    print("A, B, C, D: "+str(A_count),str(B_count),str(C_count),str(D_count))
+    print(f"{', '.join(letters[:end_i])}: {', '.join(map(str,letters_count[:end_i]))}")
     print()
 
 
