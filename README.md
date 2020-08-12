@@ -56,7 +56,7 @@ multiple_choice_questions = [
 multiple_choice_questions is also a Python list, which should contain each question and all the details pertaining to it. Each question consists of a Python dictionary with four entries. The commented zero just indicates what index the question is in the list, which can be helpful when many questions are entered.
 * **'question'** is where you write your question. The quotations are a reminder that this should be a string. This uses " so an apostrophe can be inserted without any issues.
 * **'options'** contains a list of ways you want your question to vary. Inside the [ ] to indicate a list are ' symbols showing this should be a list of strings. Similar to above, if an apostrophe is needed the " symbol can be used around the string instead.
-* **'choices'** contains a list of potential answers. You can have any number of choices here; two, four, ten, whatever.
+* **'choices'** contains a list of potential answers. You can have up to 26 choices here.
 * **'answers'** contains a list of a single item, which should be the exact string as one of the choices. Because these are strings, the answer must use quotations, which was not true of the true/false section.
 
 ### Example 1
